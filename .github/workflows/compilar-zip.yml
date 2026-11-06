@@ -1,0 +1,49 @@
+name: Compilar APK de Manzanin desde ZIP
+
+on:
+  push:
+    branches: [main]
+    paths: ['*.zip', '.github/workflows/compilar-zip.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compilar:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - name: Extraer proyecto y compilar
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf '%s  %s\n' '0a3e3ad29c940d95f3450fee1a07cb1b5943d2f5ddb6a7a6ad33aa8bff9aaba9' 'AppSchooling_AndroidStudio_1.2_Mis_Avisos.zip' | sha256sum --check
+          unzip -q AppSchooling_AndroidStudio_1.2_Mis_Avisos.zip -d proyecto
+          cd proyecto/AppSchooling_AndroidStudio_1_2
+          test -s app/google-services.json
+          sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+          gradle --no-daemon :app:assembleRelease
+          destino="$RUNNER_TEMP/manzanin-android-build"
+          mkdir -p "$destino"
+          cp app/build/outputs/apk/release/app-release-unsigned.apk "$destino/manzanin-unsigned.apk"
+          cp "$ANDROID_HOME/build-tools/35.0.0/lib/apksigner.jar" "$destino/apksigner.jar"
+          cd "$destino"
+          sha256sum manzanin-unsigned.apk apksigner.jar > SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: manzanin-android-build
+          path: ${{ runner.temp }}/manzanin-android-build/
+          if-no-files-found: error
+          retention-days: 7
