@@ -47,16 +47,22 @@ async function main(){
     await page.locator('.mobile-nav [data-page="avatar"]').click();
     await page.locator('[data-action="avatarPose"][data-id="estudioso"]').click();
     // The large selected companion is the animated canvas, outside the cards.
-    const selectedCanvas=()=>page.locator('.manzanin-canvas[data-animate="true"]').first();
+    const selectedCanvas=()=>page.locator('#manzanin-showcase .manzanin-canvas[data-animate="true"]');
+    const canvasSnapshot=async()=>{
+      // Choosing a card scrolls the gallery into view; offscreen actors pause.
+      await selectedCanvas().scrollIntoViewIfNeeded();
+      await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+      return selectedCanvas().evaluate(n=>n.toDataURL());
+    };
     await page.evaluate(()=>window.AppSchoolingManzanin.ready());
-    const student=await selectedCanvas().evaluate(n=>n.toDataURL());
+    const student=await canvasSnapshot();
     await page.locator('[data-action="avatarPose"][data-id="explorador"]').click();
-    const explorer=await selectedCanvas().evaluate(n=>n.toDataURL());
+    const explorer=await canvasSnapshot();
     assert(student!==explorer,'Aventurero must differ even with reduced motion');check('Aventurero has its own complete resting artwork');
     await capture('restored-aventurero-390.png');
     await page.emulateMedia({reducedMotion:'no-preference'});
-    const before=await selectedCanvas().evaluate(n=>n.toDataURL());
-    await page.waitForTimeout(1150);
+    const before=await canvasSnapshot();
+    await page.waitForFunction(initial=>document.querySelector('#manzanin-showcase .manzanin-canvas').toDataURL()!==initial,before,{timeout:5000,polling:100});
     const after=await selectedCanvas().evaluate(n=>n.toDataURL());
     assert.notStrictEqual(before,after);check('Aventurero visibly animates with motion enabled');
     await page.emulateMedia({reducedMotion:'reduce'});
