@@ -1,0 +1,48 @@
+name: Revisar diseno de referencia de Manzanin
+on:
+  push:
+    branches: [main]
+    paths: ['ci/fetch_reference.py', '.github/workflows/inspect-reference.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  referencia:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Recuperar todos los recursos originales
+        run: python3 ci/fetch_reference.py --base https://soft-cocada-de54ce.netlify.app/ --out out
+      - name: Capturar diseno original
+        shell: bash
+        run: |
+          set -euo pipefail
+          google-chrome --headless=new --no-sandbox --disable-dev-shm-usage --hide-scrollbars --force-device-scale-factor=1 --force-prefers-reduced-motion --window-size=390,844 --virtual-time-budget=8000 --screenshot="$GITHUB_WORKSPACE/out/code/reference-390.png" https://soft-cocada-de54ce.netlify.app/
+          google-chrome --headless=new --no-sandbox --disable-dev-shm-usage --hide-scrollbars --force-device-scale-factor=1 --force-prefers-reduced-motion --window-size=1440,1000 --virtual-time-budget=8000 --screenshot="$GITHUB_WORKSPACE/out/code/reference-1440.png" https://soft-cocada-de54ce.netlify.app/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: manzanin-reference-code
+          path: out/code/
+          if-no-files-found: error
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        with:
+          name: manzanin-reference-assets-1
+          path: out/assets1/
+          if-no-files-found: error
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        with:
+          name: manzanin-reference-assets-2
+          path: out/assets2/
+          if-no-files-found: warn
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        with:
+          name: manzanin-reference-assets-3
+          path: out/assets3/
+          if-no-files-found: warn
+          retention-days: 7
