@@ -13,16 +13,22 @@ from urllib.request import Request, build_opener, HTTPRedirectHandler
 
 EXT = r'(?:png|jpe?g|webp|gif|ico|svg|ttf|otf|woff2?|css|js|webmanifest|json|txt)'
 QUOTED_ASSET = re.compile(r'''["']((?:\.?\.?/)?(?:[A-Za-z0-9_.-]+/)*[A-Za-z0-9_-]+\.''' + EXT + r'''(?:\?[^"'<>]*)?)["']''', re.I)
-CSS_ASSET = re.compile(r'''url\(\s*["']?([^\s"')]+)["']?\s*\)''', re.I)
+CSS_ASSET = re.compile(r'''(?<![\w$])url\(\s*["']?([^\s"')]+)["']?\s*\)''', re.I)
 
 
 class HTMLAssets(HTMLParser):
     def __init__(self):
-        super().__init__(); self.refs = []
+        super().__init__(); self.refs = []; self.styles = []; self._in_style = False
     def handle_starttag(self, tag, attrs):
         values = dict(attrs)
+        if tag == 'style': self._in_style = True
+        if values.get('style'): self.styles.append(values['style'])
         if tag in ('script', 'img', 'source', 'link', 'video', 'audio'):
             self.refs.extend(values[k] for k in ('src', 'href', 'poster') if values.get(k))
+    def handle_endtag(self, tag):
+        if tag == 'style': self._in_style = False
+    def handle_data(self, data):
+        if self._in_style: self.styles.append(data)
 
 
 def main():
@@ -118,7 +124,10 @@ def main():
         if suffix == '.html':
             html = HTMLAssets(); html.feed(text)
             for ref in html.refs: enqueue(ref, url)
-        for ref in CSS_ASSET.findall(text): enqueue(ref, url)
+            for css in html.styles:
+                for ref in CSS_ASSET.findall(css): enqueue(ref, url)
+        elif suffix == '.css':
+            for ref in CSS_ASSET.findall(text): enqueue(ref, url)
         if suffix == '.js':
             # Literal relative assets; SW remains the complete required inventory.
             for ref in QUOTED_ASSET.findall(text):
