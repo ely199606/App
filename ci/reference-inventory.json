@@ -1,0 +1,548 @@
+{
+  "source_url": "https://soft-cocada-de54ce.netlify.app/",
+  "files": {
+    "accessories/audifonos.png": {
+      "sha256": "4ff637159f202c4e65d049a25c8ae988a19ba040260154577e22d10eba9340c8",
+      "bytes": 7533,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/accessories/audifonos.png"
+    },
+    "accessories/bicicleta.png": {
+      "sha256": "8418db1bf28becacc65485f645bdf12d5e9517fc04d8ed74ee4c4d1cf66859f2",
+      "bytes": 8202,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/accessories/bicicleta.png"
+    },
+    "accessories/boina.png": {
+      "sha256": "2378dfd80082763d5e35b5397d52b583043bcd7558579f34a0d2e40b5ba1f96a",
+      "bytes": 6469,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/accessories/boina.png"
+    },
+    "accessories/chaqueta.png": {
+      "sha256": "4dc401e681c6c8a8cfe24847fc272bab2dad8fb237b0c35372d236d95e59cb85",
+      "bytes": 7664,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/accessories/chaqueta.png"
+    },
+    "accessories/cofia.png": {
+      "sha256": "586c2e975c6da675b43620b7311e80877c2f6159618d5c11e442621d2ea1f83f",
+      "bytes": 7168,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/accessories/cofia.png"
+    },
+    "accessories/delantal.png": {
+      "sha256": "d2e6cb6533818c85b580ad0fc70bfe27c8daa860c7861442f8ae2b8e89f6ace7",
+      "bytes": 5987,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/accessories/delantal.png"
+    },
+    "accessories/gafas.png": {
+      "sha256": "80d84e16584e301fac3ead0c9db9d24f97913c0802b869df34e06278935a509c",
+      "bytes": 6660,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/accessories/gafas.png"
+    },
+    "accessories/gorra.png": {
+      "sha256": "ddd5fc3b0599f950da55c6cddd2b9619c90c42106d1dc7573b545bd8443ff593",
+      "bytes": 6322,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/accessories/gorra.png"
+    },
+    "accessories/jardinera.png": {
+      "sha256": "a53446edd1ceb39eb8a1ac9752e4046dc6a3f5afcee03fb23c46fb7ec866d044",
+      "bytes": 6433,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/accessories/jardinera.png"
+    },
+    "accessories/libro.png": {
+      "sha256": "d1ece10255388ea4069614a0e499275dadb7bd43b3b000e650e39d8f5656490c",
+      "bytes": 7229,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/accessories/libro.png"
+    },
+    "accessories/mascota.png": {
+      "sha256": "587158ff1bbe4bb7ae4eb86620616af6493aa43128f59395d7ceb9918f459bdf",
+      "bytes": 8554,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/accessories/mascota.png"
+    },
+    "accessories/mochila.png": {
+      "sha256": "09216ed3e744f2879864c290285963e504860b233b5e3705d3a59c3902522e23",
+      "bytes": 8048,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/accessories/mochila.png"
+    },
+    "accessories/muneco.png": {
+      "sha256": "e973326a2df4928d59b0b2535ed4bcbbf7e5957f291a01d844e974b2132f845a",
+      "bytes": 7506,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/accessories/muneco.png"
+    },
+    "accessories/tablet.png": {
+      "sha256": "c8b94b45cc376ba98e49485e4bc724b6ba5e0af935438f220249c5a46b8702e6",
+      "bytes": 6318,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/accessories/tablet.png"
+    },
+    "app.js": {
+      "sha256": "13a7d46820c2d315933cb4a2a3a52729c4882ad7adc1211bd7add6d965660d5c",
+      "bytes": 101219,
+      "content_type": "application/javascript",
+      "url": "https://soft-cocada-de54ce.netlify.app/app.js"
+    },
+    "calm-music.css": {
+      "sha256": "3eb6af158499c9203c5248035db69c50555ca0cd072e3f17992c579bda2c1683",
+      "bytes": 3360,
+      "content_type": "text/css",
+      "url": "https://soft-cocada-de54ce.netlify.app/calm-music.css"
+    },
+    "calm-music.js": {
+      "sha256": "888c9a63198119d0df2084518c32e2ae3dd2d6322a69bdef905b5b52c51e83bb",
+      "bytes": 10123,
+      "content_type": "application/javascript",
+      "url": "https://soft-cocada-de54ce.netlify.app/calm-music.js"
+    },
+    "characters/animated/manzanin-accessories-v3.png": {
+      "sha256": "47101c312d75d09136f7804d574a1d85bc7b3b58a36abd026a08316c528ab3dc",
+      "bytes": 1294688,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-accessories-v3.png"
+    },
+    "characters/animated/manzanin-actions-v3.png": {
+      "sha256": "5bc89e801cc2659862025cf7f477974bc0917a0aaae384ec5a8fe496da51b5bd",
+      "bytes": 1598000,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-actions-v3.png"
+    },
+    "characters/animated/manzanin-artist-v16.png": {
+      "sha256": "fb0c4bcf82011f916af584a3e96825c0a551c87e1d2afdbc58626863ccb5688c",
+      "bytes": 1688404,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-artist-v16.png"
+    },
+    "characters/animated/manzanin-atlas.png": {
+      "sha256": "5285e7fe4ea4023cfcb7960f0668b6c1d30b82c9a0d8801b5b8a387b239e7649",
+      "bytes": 1741765,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-atlas.png"
+    },
+    "characters/animated/manzanin-base-v3.png": {
+      "sha256": "370751c9299b4dff32dc55fc66fa4659d4cdb7be6457ad64a614cfd4d734d3ef",
+      "bytes": 1589658,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-base-v3.png"
+    },
+    "characters/animated/manzanin-calm-v16.png": {
+      "sha256": "22644e753d6420a3b081807129f953a3ad323998705a3ae2aa71ae582d6f80a6",
+      "bytes": 1269258,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-calm-v16.png"
+    },
+    "characters/animated/manzanin-catch-v16.png": {
+      "sha256": "485729bca78a9acf5ea86d11d40df6baed6f2265fcdaadc54b8a1c3eda2ba656",
+      "bytes": 1278130,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-catch-v16.png"
+    },
+    "characters/animated/manzanin-clap-dance-v15.png": {
+      "sha256": "b80e59034711db2e9a0ff020d1a22909b7475337aa363ab3a1cdae6c21356ffe",
+      "bytes": 1901191,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-clap-dance-v15.png"
+    },
+    "characters/animated/manzanin-clap-v16.png": {
+      "sha256": "d01b0da086a1d364e7249710bd4c7444e7de19294d2b11b2ddbe302ffa612369",
+      "bytes": 1002959,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-clap-v16.png"
+    },
+    "characters/animated/manzanin-dance-v16.png": {
+      "sha256": "2399ccb3ab3b0111174383697b77ecedb24febb22ffac5008c84a668e953a3ac",
+      "bytes": 1087534,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-dance-v16.png"
+    },
+    "characters/animated/manzanin-explorer-v16.png": {
+      "sha256": "72d42c870fb945224825dc5c5af7ee0b83fd86ef0526060a91859e1d0b7730f5",
+      "bytes": 1343217,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-explorer-v16.png"
+    },
+    "characters/animated/manzanin-faces-v3.png": {
+      "sha256": "71900129e6692e999413d7ae5dcb514b5e59d775b7a79d2b7eab1e35cc2e138e",
+      "bytes": 1834469,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-faces-v3.png"
+    },
+    "characters/animated/manzanin-jump-v16.png": {
+      "sha256": "262d004036cf27e9a0563439bf0b0f7c03955320f292618df182d5cf4bad3ea7",
+      "bytes": 1142875,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-jump-v16.png"
+    },
+    "characters/animated/manzanin-jump-wave-v15.png": {
+      "sha256": "3c229b500acf33a7c7d670f829df59fa144720bf870fffa180298f47e6ba7b20",
+      "bytes": 1929627,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-jump-wave-v15.png"
+    },
+    "characters/animated/manzanin-reader-v16.png": {
+      "sha256": "b3a27998e6ce63590a6b1255df7105a443cdd7f72e8a308f2ba5d1406a20c407",
+      "bytes": 1332081,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-reader-v16.png"
+    },
+    "characters/animated/manzanin-sport-run-v15.png": {
+      "sha256": "918c862398a0688e58a558404cf0e2a5535a17068a5405a4cdfe64a3348cdf5a",
+      "bytes": 1392978,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-sport-run-v15.png"
+    },
+    "characters/animated/manzanin-sport-v16.png": {
+      "sha256": "6b335e56ec96fa7b82bb9ee3635d4aa3fbb8d733a7b304ed68e8d6ee9b4fd72e",
+      "bytes": 1249678,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-sport-v16.png"
+    },
+    "characters/animated/manzanin-student-v16.png": {
+      "sha256": "34a3e817adaaaab13a4c33e49c82ab98131de150512c51939ef70877a2bc5903",
+      "bytes": 1282262,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-student-v16.png"
+    },
+    "characters/animated/manzanin-styles-a-v15.png": {
+      "sha256": "759ba06364c2a66e3ef93848aff4f24549b461354c813eecb854ad42e145d96e",
+      "bytes": 2147012,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-styles-a-v15.png"
+    },
+    "characters/animated/manzanin-styles-b-v15.png": {
+      "sha256": "f39a2d5cfa6e6eb3dbc9895c58d9cac6c47ee56b45dae2a99ad205c162e6565e",
+      "bytes": 2053524,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-styles-b-v15.png"
+    },
+    "characters/animated/manzanin-styles-c-v15.png": {
+      "sha256": "24642d0ce3a5f9fcc5df8d292adf3a04567f03b962cd05069e30d4f136a4365c",
+      "bytes": 2161111,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-styles-c-v15.png"
+    },
+    "characters/animated/manzanin-tablet-v16.png": {
+      "sha256": "938fa7fe1397ad8af67b4bde07734c242bdcd24b657a0f19e1ac6b091330f39b",
+      "bytes": 1120064,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-tablet-v16.png"
+    },
+    "characters/animated/manzanin-water-v16.png": {
+      "sha256": "111f5597109ac1e00795e958cc1c89590c888abf6a162625383bd41865b460d4",
+      "bytes": 1069712,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-water-v16.png"
+    },
+    "characters/animated/manzanin-wave-blink-v15.png": {
+      "sha256": "72da8488fc6f1fc8e8dd86d7cafd3e2c0f13a79fbf3a6f3131f5cc9e7d5aa41b",
+      "bytes": 1976551,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-wave-blink-v15.png"
+    },
+    "characters/animated/manzanin-wave-v16.png": {
+      "sha256": "c5150e645f85ac5391a7a51f537bd5246355b82a91ffbe4ec41a1239438b0e92",
+      "bytes": 1118447,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/animated/manzanin-wave-v16.png"
+    },
+    "characters/manzanin_artista.png": {
+      "sha256": "e71a067ce2c74dd6f517adebb0ccef326758d3f2fda54e3c09d84b9f2a91b1c9",
+      "bytes": 97120,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/manzanin_artista.png"
+    },
+    "characters/manzanin_calma.png": {
+      "sha256": "56bb62ee8fe0e17dd2f5ba003bb6fa65c31ef263de2ca6dd44cb6be5fda2e320",
+      "bytes": 88224,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/manzanin_calma.png"
+    },
+    "characters/manzanin_celebracion.png": {
+      "sha256": "f1dcb741c0a3269aebc14bd7bf0dd471698365937599e8bf41bb29e443952f1e",
+      "bytes": 115783,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/manzanin_celebracion.png"
+    },
+    "characters/manzanin_deportista.png": {
+      "sha256": "550ce0cc3e672d83fad3daabe98ef7259f4e00d2c571272c3f596ed2e8266f3f",
+      "bytes": 99434,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/manzanin_deportista.png"
+    },
+    "characters/manzanin_estudioso.png": {
+      "sha256": "f64973e86ce24699561dbad31cd2268e1fb7bdcb1185829dbd65fc846d800c73",
+      "bytes": 99808,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/manzanin_estudioso.png"
+    },
+    "characters/manzanin_explorador.png": {
+      "sha256": "bed450e356b8dbba3fa5c808124fd793685dbee17a011dbbee68453a241cb4a0",
+      "bytes": 112035,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/manzanin_explorador.png"
+    },
+    "characters/manzanin_hidratacion.png": {
+      "sha256": "f9a36d22c4bd45c1c80adf78d69f27d2c3731e5caaa8ff59e06df0c44cbbf10f",
+      "bytes": 243526,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/manzanin_hidratacion.png"
+    },
+    "characters/manzanin_lector.png": {
+      "sha256": "f734f978bea8e861cd6148ad12f42185f0c108f07675c4b9dc99b9fa461bca09",
+      "bytes": 104948,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/manzanin_lector.png"
+    },
+    "characters/manzanin_tecnologico.png": {
+      "sha256": "ab4288ca7241c2255c4f7943ad5761036f5a57be5adb6b2339a5faf6ab95885e",
+      "bytes": 104301,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/characters/manzanin_tecnologico.png"
+    },
+    "circles-v11.css": {
+      "sha256": "6bb014ac578b8a330e96d6b8102baea85271a22930c0083a273ef01c29e3f945",
+      "bytes": 4975,
+      "content_type": "text/css",
+      "url": "https://soft-cocada-de54ce.netlify.app/circles-v11.css"
+    },
+    "companion-v13.css": {
+      "sha256": "e81a04e2ac02ee0fac7cea00bdc8e553ad7dfd3ac7b8c8c475eb39770ca4df73",
+      "bytes": 2182,
+      "content_type": "text/css",
+      "url": "https://soft-cocada-de54ce.netlify.app/companion-v13.css"
+    },
+    "examenes.css": {
+      "sha256": "0394dabf1c6ba6b520ad0fb45a8c0914442bf1e1d0ed054e5feb4de722742ed1",
+      "bytes": 2793,
+      "content_type": "text/css",
+      "url": "https://soft-cocada-de54ce.netlify.app/examenes.css"
+    },
+    "examenes.js": {
+      "sha256": "e876414276b8a3ebdcfd0e2d6c654bb50ba8dbaf4c6179a8abbd1dbf92b08208",
+      "bytes": 7015,
+      "content_type": "application/javascript",
+      "url": "https://soft-cocada-de54ce.netlify.app/examenes.js"
+    },
+    "focus-v13.css": {
+      "sha256": "c59b937a260302f5ec0078056cec6dce1a6b6762144a280866c50259f8036ee6",
+      "bytes": 5226,
+      "content_type": "text/css",
+      "url": "https://soft-cocada-de54ce.netlify.app/focus-v13.css"
+    },
+    "focus-v13.js": {
+      "sha256": "c5d9f8ea977c8ff69bdb2533e82e9a90097f4065c5e7d6e390b1261fe15c6cf9",
+      "bytes": 7656,
+      "content_type": "application/javascript",
+      "url": "https://soft-cocada-de54ce.netlify.app/focus-v13.js"
+    },
+    "fonts/AtkinsonHyperlegible-Bold.ttf": {
+      "sha256": "5a3b0c8cc8ca545155150b4512a1fa248298df121c50d6557e651e61fbdab92f",
+      "bytes": 55256,
+      "content_type": "font/ttf",
+      "url": "https://soft-cocada-de54ce.netlify.app/fonts/AtkinsonHyperlegible-Bold.ttf"
+    },
+    "fonts/AtkinsonHyperlegible-Regular.ttf": {
+      "sha256": "7fb917c89019896d0b52ee84b7cbb3304c18cb90b19a62f5e32712bd23e97669",
+      "bytes": 54348,
+      "content_type": "font/ttf",
+      "url": "https://soft-cocada-de54ce.netlify.app/fonts/AtkinsonHyperlegible-Regular.ttf"
+    },
+    "fonts/OFL.txt": {
+      "sha256": "f32d22b3908fcad2c86a74000614ec22e6a7f66ea7e867e616026a27aebdc143",
+      "bytes": 4352,
+      "content_type": "text/plain",
+      "url": "https://soft-cocada-de54ce.netlify.app/fonts/OFL.txt"
+    },
+    "games-v2.css": {
+      "sha256": "2259231040cb3efd1171838f396198de2fd9d6f9294868300b5e47d4c142c026",
+      "bytes": 4083,
+      "content_type": "text/css",
+      "url": "https://soft-cocada-de54ce.netlify.app/games-v2.css"
+    },
+    "icons/appschooling-icon.svg": {
+      "sha256": "bf3af92eb4cae20ac9e7dc1718254b3d85b57efbaa6a9e6b14038e9249e51ad3",
+      "bytes": 1005,
+      "content_type": "image/svg+xml",
+      "url": "https://soft-cocada-de54ce.netlify.app/icons/appschooling-icon.svg"
+    },
+    "icons/icon-192.png": {
+      "sha256": "ad4fcceba8a7dd2c2b7ef2fc20069b0a0adac617458f54957060a6edf8454eca",
+      "bytes": 67672,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/icons/icon-192.png"
+    },
+    "icons/icon-512.png": {
+      "sha256": "3fcad733ffc88fa05b4adc62623f2728598b90668494e71d78025f77797ea77f",
+      "bytes": 309575,
+      "content_type": "image/png",
+      "url": "https://soft-cocada-de54ce.netlify.app/icons/icon-512.png"
+    },
+    "index.html": {
+      "sha256": "ffdc51a9fa6b5ca05635657b085f87c5b70a09c7f691360fe87c0430a309e6dd",
+      "bytes": 355428,
+      "content_type": "text/html",
+      "url": "https://soft-cocada-de54ce.netlify.app/"
+    },
+    "layout-v3.css": {
+      "sha256": "f2d977cd1ef69e9e75087a668c60483e50cd74d854bc880502d7075e6e159732",
+      "bytes": 5069,
+      "content_type": "text/css",
+      "url": "https://soft-cocada-de54ce.netlify.app/layout-v3.css"
+    },
+    "manifest.webmanifest": {
+      "sha256": "8f2b1c95e35823d04f41f210dafd4a5f486e45c4d59b1405a1ecf63d5b35c162",
+      "bytes": 595,
+      "content_type": "application/octet-stream",
+      "url": "https://soft-cocada-de54ce.netlify.app/manifest.webmanifest"
+    },
+    "manzanin.css": {
+      "sha256": "c664a51c424b87ebf71b6291ccba427abbe0a7eab484cddd49e2c3015f500448",
+      "bytes": 3140,
+      "content_type": "text/css",
+      "url": "https://soft-cocada-de54ce.netlify.app/manzanin.css"
+    },
+    "manzanin.js": {
+      "sha256": "f8093202ba1fdf43276ab4a995c2b66ecda27c629a0afdeb1824176f98cb6970",
+      "bytes": 36982,
+      "content_type": "application/javascript",
+      "url": "https://soft-cocada-de54ce.netlify.app/manzanin.js"
+    },
+    "platformer.css": {
+      "sha256": "7c604ca1fabc4b3e5c39964cf3a6bd33d90480fb4b1a714a8b254c91a2213644",
+      "bytes": 7651,
+      "content_type": "text/css",
+      "url": "https://soft-cocada-de54ce.netlify.app/platformer.css"
+    },
+    "platformer.js": {
+      "sha256": "e64227a7b72f6d467b4d2ff9dd006705379b045523b1e57b53b39fb1baf54284",
+      "bytes": 18251,
+      "content_type": "application/javascript",
+      "url": "https://soft-cocada-de54ce.netlify.app/platformer.js"
+    },
+    "readability.css": {
+      "sha256": "63c6424ffe8abee8a22785707b5eef9288faf44637a96299336b12447e512977",
+      "bytes": 8651,
+      "content_type": "text/css",
+      "url": "https://soft-cocada-de54ce.netlify.app/readability.css"
+    },
+    "study-strategies.css": {
+      "sha256": "1fc7f5383ea897ece2ebebe2338e53b8f3deb58fa4129765fc401adfaa94d61d",
+      "bytes": 9751,
+      "content_type": "text/css",
+      "url": "https://soft-cocada-de54ce.netlify.app/study-strategies.css"
+    },
+    "study-strategies.js": {
+      "sha256": "c09eefb6567247b284a07048148ee31f6a6eb6eddfe5ff943c6cd271974cf86f",
+      "bytes": 41868,
+      "content_type": "application/javascript",
+      "url": "https://soft-cocada-de54ce.netlify.app/study-strategies.js"
+    },
+    "styles.css": {
+      "sha256": "71f93ae306cb5ed21af44dc075e54ce93d5cfa63308537fbab8594b7da58c27d",
+      "bytes": 71527,
+      "content_type": "text/css",
+      "url": "https://soft-cocada-de54ce.netlify.app/styles.css"
+    },
+    "sw.js": {
+      "sha256": "8defb614ab2c89767cd4914cb4a4c97589197d06678f39ea3f97b77e295bc262",
+      "bytes": 3648,
+      "content_type": "application/javascript",
+      "url": "https://soft-cocada-de54ce.netlify.app/sw.js"
+    },
+    "theme.css": {
+      "sha256": "9b4812c3912075a84dbf4c14a2ff546aec9529ace1691ef59601af8f28a3635a",
+      "bytes": 835,
+      "content_type": "text/css",
+      "url": "https://soft-cocada-de54ce.netlify.app/theme.css"
+    }
+  },
+  "offline_required": [
+    "accessories/audifonos.png",
+    "accessories/bicicleta.png",
+    "accessories/boina.png",
+    "accessories/chaqueta.png",
+    "accessories/cofia.png",
+    "accessories/delantal.png",
+    "accessories/gafas.png",
+    "accessories/gorra.png",
+    "accessories/jardinera.png",
+    "accessories/libro.png",
+    "accessories/mascota.png",
+    "accessories/mochila.png",
+    "accessories/muneco.png",
+    "accessories/tablet.png",
+    "app.js",
+    "calm-music.css",
+    "calm-music.js",
+    "characters/animated/manzanin-accessories-v3.png",
+    "characters/animated/manzanin-actions-v3.png",
+    "characters/animated/manzanin-artist-v16.png",
+    "characters/animated/manzanin-atlas.png",
+    "characters/animated/manzanin-base-v3.png",
+    "characters/animated/manzanin-calm-v16.png",
+    "characters/animated/manzanin-catch-v16.png",
+    "characters/animated/manzanin-clap-dance-v15.png",
+    "characters/animated/manzanin-clap-v16.png",
+    "characters/animated/manzanin-dance-v16.png",
+    "characters/animated/manzanin-explorer-v16.png",
+    "characters/animated/manzanin-faces-v3.png",
+    "characters/animated/manzanin-jump-v16.png",
+    "characters/animated/manzanin-jump-wave-v15.png",
+    "characters/animated/manzanin-reader-v16.png",
+    "characters/animated/manzanin-sport-run-v15.png",
+    "characters/animated/manzanin-sport-v16.png",
+    "characters/animated/manzanin-student-v16.png",
+    "characters/animated/manzanin-styles-a-v15.png",
+    "characters/animated/manzanin-styles-b-v15.png",
+    "characters/animated/manzanin-styles-c-v15.png",
+    "characters/animated/manzanin-tablet-v16.png",
+    "characters/animated/manzanin-water-v16.png",
+    "characters/animated/manzanin-wave-blink-v15.png",
+    "characters/animated/manzanin-wave-v16.png",
+    "characters/manzanin_artista.png",
+    "characters/manzanin_calma.png",
+    "characters/manzanin_celebracion.png",
+    "characters/manzanin_deportista.png",
+    "characters/manzanin_estudioso.png",
+    "characters/manzanin_explorador.png",
+    "characters/manzanin_hidratacion.png",
+    "characters/manzanin_lector.png",
+    "characters/manzanin_tecnologico.png",
+    "circles-v11.css",
+    "companion-v13.css",
+    "examenes.css",
+    "examenes.js",
+    "focus-v13.css",
+    "focus-v13.js",
+    "fonts/AtkinsonHyperlegible-Bold.ttf",
+    "fonts/AtkinsonHyperlegible-Regular.ttf",
+    "fonts/OFL.txt",
+    "games-v2.css",
+    "icons/appschooling-icon.svg",
+    "icons/icon-192.png",
+    "icons/icon-512.png",
+    "index.html",
+    "layout-v3.css",
+    "manifest.webmanifest",
+    "manzanin.css",
+    "manzanin.js",
+    "platformer.css",
+    "platformer.js",
+    "readability.css",
+    "study-strategies.css",
+    "study-strategies.js",
+    "styles.css",
+    "theme.css"
+  ],
+  "offline_inventory_complete": true,
+  "file_count": 77,
+  "total_bytes": 39974703
+}
