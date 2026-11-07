@@ -172,6 +172,53 @@ def native_updates(project):
     return updates
 
 
+def restore_documentation(project):
+    (project / 'ABRIR_ESTA_VERSION_PRIMERO.txt').write_text('MANZANÍN 1.3.0\n\nAbrir AppSchooling_AndroidStudio_1_3 en Android Studio.\nInterfaz recuperada de https://soft-cocada-de54ce.netlify.app/ y módulo nativo Mis avisos conservado.\nConsultar LEEME_ANDROID_STUDIO.txt. El ZIP es código fuente, no una APK instalable.\n')
+    (project / 'LEEME_ANDROID_STUDIO.txt').write_text('''MANZANÍN 1.3.0 — DISEÑO RESTAURADO
+
+Interfaz y recursos recuperados de https://soft-cocada-de54ce.netlify.app/.
+Conserva fondo crema, tipografía Atkinson y las cuatro secciones principales.
+Mis avisos se abre desde la campana o Configuración. El Aventurero incorpora
+una secuencia propia; correr y bailar se reproducen con más calma.
+
+Compilar con Java 17, Gradle 8.9, Android SDK 35 y Build Tools 35.0.0:
+gradle --no-daemon :app:assembleRelease
+Sin variables de firma, el resultado es app-release-unsigned.apk.
+La clave privada está fuera del proyecto y del repositorio.
+Usar la misma clave de la versión 1.2 para actualizar sin desinstalar.
+Paquete: com.appschooling.manzanin.piloto09. Código de versión: 130.
+
+Los perfiles mantienen su almacenamiento local y pueden exportarse.
+Firebase registra el dispositivo solo al activar los avisos de academia.
+Consultar CONTRATO_AVISOS.md para el formato FCM data-only.
+El registro de apoderados, cursos por hijo, envíos por nivel y panel
+administrativo requieren la siguiente etapa de plataforma y base de datos.
+Esta versión no implementa todavía esa diferenciación.
+''')
+    (project / 'VALIDACION_Y_LIMITES.txt').write_text('''MANZANÍN 1.3 — VALIDACIÓN Y LÍMITES
+
+El workflow restaura una referencia pública fijada por SHA256, conserva los
+atlas originales y aplica cambios acotados en app.js/index.html/manzanin.js.
+Antes de compilar ejecuta Chromium con capturas de Inicio, Planner, Aventurero,
+juego y bandeja; comprueba navegación, datos y llegada de avisos simulados.
+El informe de esa ejecución se guarda en qa/browser-report.json.
+restore-report.json documenta la restauración antes del parche de movimiento.
+
+Los avisos en Chromium usan un puente Android simulado. La entrega real FCM
+debe comprobarse en un teléfono; no se afirma una prueba física completada.
+El proyecto no contiene claves privadas. El APK se firma después de compilar,
+con el certificado conservado de 1.2. Los manifiestos de hashes y la evidencia
+del build se entregan aparte del respaldo fuente.
+
+Registro de apoderados, perfiles remotos, niveles y panel de envíos: pendientes
+de la siguiente etapa. Actualmente solo están previstos los avisos generales.
+''')
+    for name in ['test_notices_integration.cjs', 'notices-final-audit.json']:
+        legacy = project / 'qa' / name
+        if legacy.exists():
+            legacy.unlink()
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--project', required=True, type=Path)
@@ -231,6 +278,7 @@ def main():
     }
     report_path = project / 'restore-report.json'
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
+    restore_documentation(project)
     print(json.dumps({'report': str(report_path), 'version': '1.3.0', 'reference_files_unchanged': len(unchanged), 'reference_files_changed': sorted(changed), 'app_execution': html_report['execution'], 'navigation_unchanged': True}))
 
 
