@@ -1,0 +1,300 @@
+/* BRAND_RED_GREEN_V14
+   Manzanín: rojo y verde de la referencia, papel cálido y movimiento de fondo.
+   Se carga después del tema anterior. No cambia dibujos, controles ni rutas.
+*/
+:root{
+  --appred:#d92d36;
+  --appgreen:#237b2d;
+  --primary:#1b792a;
+  --primary-soft:#e8f4df;
+  --ink:#234632;
+  --stroke:#e8e1d3;
+  --appcream:#fff8ef;
+  --cream:#fff7eb;
+  --paper:#fffdf7;
+  --app-ivory:#fff8ef;
+  background:#287f34;
+}
+html,body{overflow-x:hidden;overflow-x:clip}
+body{
+  position:relative;
+  isolation:isolate;
+  min-height:100vh;
+  background:transparent!important;
+  color:var(--ink);
+}
+/* The three decorative layers never intercept taps or sit above the content. */
+body::before{
+  content:"";
+  position:fixed;
+  inset:-10%;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 3% 12%,#fa4945 0%,#e8353c 25%,transparent 58%),
+    radial-gradient(ellipse at 100% 12%,#398e32 0%,#267e32 36%,transparent 67%),
+    linear-gradient(118deg,#dc3039 3%,#dc5740 35%,#76aa45 58%,#217b32 88%);
+  transform:translate3d(-1.5%,0,0) scale(1.04);
+  animation:manzanin-brand-colors 32s ease-in-out infinite alternate;
+  will-change:transform;
+}
+body::after{
+  content:"";
+  position:fixed;
+  left:-31vw;
+  bottom:calc(var(--bottom-navigation-height,0px) - 142px);
+  width:111vw;
+  height:236px;
+  z-index:0;
+  pointer-events:none;
+  border-radius:49% 64% 0 0 / 64% 79% 0 0;
+  background:linear-gradient(115deg,#f64444 15%,#e13538 78%);
+  transform:rotate(8deg);
+  animation:manzanin-brand-red-wave 29s ease-in-out infinite alternate;
+}
+#app{position:relative;z-index:1}
+#app,.layout,.main{
+  background:transparent!important;
+  background-image:none!important;
+}
+.layout::before{
+  content:"";
+  position:fixed;
+  right:-34vw;
+  bottom:calc(var(--bottom-navigation-height,0px) - 155px);
+  width:116vw;
+  height:255px;
+  z-index:-1;
+  pointer-events:none;
+  border-radius:65% 43% 0 0 / 78% 62% 0 0;
+  background:linear-gradient(112deg,#86c64c,#45a633 53%,#287f2b);
+  transform:rotate(-8deg);
+  animation:manzanin-brand-green-wave 35s ease-in-out infinite alternate;
+}
+.main{padding-top:23px}
+/* A continuous, light sheet keeps long study/exam pages easy to read. */
+.page-content{
+  position:relative;
+  min-width:0;
+  padding:25px;
+  border:1px solid rgba(255,250,237,.82);
+  border-radius:32px;
+  background:rgba(255,250,242,.975);
+  box-shadow:0 13px 40px rgba(31,71,33,.12);
+}
+.topbar{
+  min-height:78px;
+  padding:10px 3px;
+  margin-bottom:15px;
+  border:0;
+  border-radius:0;
+  background:transparent!important;
+  box-shadow:none;
+}
+.breadcrumb{
+  color:#fff;
+  font-size:14px;
+  font-weight:700;
+  line-height:1.4;
+  padding:8px 11px;
+  border-radius:13px;
+  background:rgba(29,67,30,.26);
+  text-shadow:0 1px 2px rgba(35,54,30,.14);
+}
+.profile-switch,.icon-btn{
+  color:#24642d;
+  background:#fffdf7;
+  border:1px solid rgba(255,255,255,.82);
+  border-radius:18px;
+  box-shadow:0 3px 0 rgba(28,83,29,.14);
+}
+.notice-nav-count{background:#d22b34}
+.top-info{
+  color:#496044;
+  background:rgba(255,252,242,.96);
+  border:1px solid rgba(255,255,255,.72);
+  border-radius:17px;
+  margin-bottom:18px;
+  box-shadow:0 3px 10px rgba(46,76,38,.06);
+}
+.top-info .link-btn{color:#176c29}
+.sidebar{
+  background:#fffaf0;
+  border-right:1px solid #eee4ce;
+}
+.brand,.page-title,.section-title h2,.section-heading,.hero h1,
+.games-intro h2,.wardrobe-heading,.examenes-page h2{
+  color:#174d28;
+  font-family:var(--reading-font);
+  font-weight:700;
+}
+.brand{color:#1d6b2b}
+.logo-mark{color:#237931;background:#eaf4dd}
+.nav-caption{color:#65765b}
+.sidebar .nav-btn{color:#365a3c}
+.sidebar .nav-btn:hover{color:#1b6c29;background:#f0f6e8}
+.sidebar .nav-btn.active{
+  color:#b72c31;
+  background:#ffece6;
+  box-shadow:inset 4px 0 #db343a;
+}
+.page-sub,.card p,.row-main small,.muted,.focus-heading p,
+.focus-tip,.customizer-options p{color:#4f6557}
+.eyebrow,.overline{color:#b12e34}
+.card,.routine-sheet,.game-active,.customizer-options{
+  border-color:#ece3d3;
+  background-color:#fffdf8;
+  box-shadow:0 5px 18px rgba(102,76,41,.065);
+}
+.card:not(.cream):not(.mint):not(.pink):not(.lilac):not(.water-card):not(.avatar-intro){background-color:#fffdf8}
+.card.cream{background:#fff5e5}
+.card.mint,.card.lilac{background:#eff6e4}
+.card.pink{background:#ffede8}
+.card.avatar-intro{background:#fff4e7!important}
+.button{
+  color:#fff;
+  background:#1c7c2a;
+  box-shadow:0 3px 0 #c7dfb4;
+}
+.button:hover{background:#176825;box-shadow:0 4px 0 #bed5ab}
+.button.secondary{
+  color:#27572e;
+  background:#edf5dc;
+  box-shadow:0 3px 0 #d7e4bf;
+}
+.button.ghost{color:#24662f;background:#fffdf8;border-color:#cbdabb}
+.button.pink{color:#fff;background:#cb3339;box-shadow:0 3px 0 #f0c3b8}
+.link-btn{color:#22732f}
+.badge{color:#246630;background:#e7f2db}
+.tag{color:#5c7154;background:#eef1e3}
+.metric strong{color:#206531}
+.track{background:#e6ebd9}
+.track>span{background:#4c9b36}
+.check-circle.done{background:#389d35;border-color:#389d35}
+/* The main illustration remains a complete canvas; only its old frame changes. */
+.hero{
+  color:#21442d;
+  background:linear-gradient(130deg,#fffdf8 8%,#fff8ed 70%,#ffede6);
+  border:1px solid #f0dec8;
+  border-radius:28px;
+  box-shadow:0 6px 17px rgba(158,88,43,.09);
+}
+.hero::before{content:none}
+.hero::after{background:#dcebc9;opacity:.43}
+.hero p{color:#46614f}
+.hero .button{
+  color:#fff;
+  background:linear-gradient(105deg,#28882d,#186b23);
+  box-shadow:0 3px 0 #c8dfa9;
+}
+.hero .button.secondary{
+  color:#25602c;
+  background:#f0f6dd;
+  box-shadow:0 3px 0 #d9e5c2;
+}
+.hero-illustration{
+  background:transparent;
+  border:0;
+  border-radius:0;
+}
+.as-quick{
+  color:#1d4b2a;
+  background:#fffdf7;
+  border:1px solid #f0e0cc;
+  box-shadow:0 5px 10px rgba(132,80,39,.085);
+}
+.as-quick.q-gold,.as-quick.q-blue{background:#fff5ed;color:#ae292f}
+.as-quick.q-green,.as-quick.q-purple{background:#f0f6e3;color:#24682e}
+.as-quick.q-gold .as-icon,.as-quick.q-blue .as-icon{color:#d32e37}
+.as-quick.q-green .as-icon,.as-quick.q-purple .as-icon{color:#2c8534}
+.habit-icon,.metric-art{color:#287532;background:#eef5df;border-color:#dce6c9}
+.customizer-main{
+  background:linear-gradient(145deg,#fff4e8,#f2f7e3);
+  border-color:#e9dfc4;
+}
+.customizer-speech{color:#c43035;border-color:#eee1c9;background:#fffdf8}
+.customizer-speech span{color:#42604a}
+.customizer-badge{color:#287431;border-color:#d0dfc2;background:#fffdf8}
+.water-card{background:#f0f7e5!important;border-color:#d5e5c5!important}
+.water-counter{color:#2d8132}
+.games-intro{
+  background:linear-gradient(110deg,#fff3e9,#edf5df)!important;
+  border-color:#e1e7cf!important;
+  box-shadow:0 5px 0 #e2e9ce!important;
+}
+.games-intro h2{color:#20582c!important}
+.game-choice-frutas{background:#ffede7!important}
+.game-choice-saltos{background:#e6f3d4!important}
+.game-choice-memoria{background:#f0f5e3!important}
+.game-choice-rutina{background:#fff3d8!important}
+.companion-ribbon{background:#f2f6e5;border-color:#d9e4c8}
+.examenes-step-number{background:#edf5df;color:#2b7633}
+.examenes-faq summary,.examenes-phone{color:#305e38}
+.examenes-source-note,.examenes-page .card p{color:#506656}
+.mobile-nav{
+  color:#42584a;
+  background:#fffaf2!important;
+  border-top:1px solid #f0e3d3!important;
+  border-radius:25px 25px 0 0;
+  box-shadow:0 -5px 23px rgba(48,81,36,.13)!important;
+}
+.mobile-nav .nav-btn{color:#506153!important}
+.mobile-nav .nav-btn.active{
+  color:#ca2730!important;
+  background:#ffebe4!important;
+  box-shadow:none!important;
+}
+.mobile-nav .nav-btn.active .as-icon{color:#d62c35}
+.mobile-nav .nav-btn.active::after{background:#d62c35}
+.modal{background:#fffaf2;color:#254a32}
+.input{background:#fffef9;color:#254a32;border-color:#d5dfc9}
+.input:focus{outline-color:#7fad67}
+
+@keyframes manzanin-brand-colors{
+  from{transform:translate3d(-1.5%,-.8%,0) scale(1.04)}
+  to{transform:translate3d(1.5%,.8%,0) scale(1.065)}
+}
+@keyframes manzanin-brand-red-wave{
+  from{transform:translate3d(-1.5vw,4px,0) rotate(8deg)}
+  to{transform:translate3d(1.5vw,-4px,0) rotate(6deg)}
+}
+@keyframes manzanin-brand-green-wave{
+  from{transform:translate3d(1.4vw,-3px,0) rotate(-8deg)}
+  to{transform:translate3d(-1.4vw,4px,0) rotate(-6deg)}
+}
+@media(max-width:760px){
+  .main{padding-top:17px}
+  .topbar{padding:5px 2px;min-height:78px;margin-bottom:14px;gap:8px}
+  .breadcrumb{font-size:12px;padding:7px 9px}
+  .top-info{padding:12px 11px;border-radius:16px;margin-bottom:17px}
+  .page-content{padding:15px 12px 20px;border-radius:27px}
+  .hero{padding:18px 13px;grid-template-columns:minmax(0,1fr) 106px;gap:8px;border-radius:24px}
+  .hero h1{font-size:27px;line-height:1.16}
+  .hero p{font-size:15px;line-height:1.5}
+  .hero .button{font-size:15px;min-height:44px;padding:10px 11px}
+  .as-quick-grid{gap:9px}
+  .as-quick{min-height:95px;border-radius:20px}
+  .card{padding:18px 16px}
+  .section-title{gap:9px;flex-wrap:wrap}
+  .section-title h2{font-size:23px}
+  .page-title{font-size:29px}
+  .focus-panel{padding:17px 12px}
+}
+@media(max-width:380px){
+  .page-content{padding:14px 9px 19px;border-radius:25px}
+  .topbar{gap:8px}
+  .breadcrumb{flex-basis:100%;width:100%;font-size:12px}
+  .hero{padding:17px 11px;grid-template-columns:minmax(0,1fr) 87px;gap:5px}
+  .hero h1{font-size:25px}
+  .hero p{font-size:15px}
+  .hero .button{font-size:14px;padding:10px 8px}
+  .as-quick{font-size:14px}
+  .card{padding:16px 12px}
+}
+@media(prefers-reduced-motion:reduce){
+  body::before,body::after,.layout::before{
+    animation:none!important;
+    transform:none!important;
+    will-change:auto;
+  }
+}
