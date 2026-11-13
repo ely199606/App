@@ -1,0 +1,371 @@
+name: Manzanin rojo y verde - APK 1.4
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - AppSchooling_AndroidStudio_1.2_Mis_Avisos.zip
+      - brand14/**
+      - .github/workflows/brand-android-14.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  personalizar-y-compilar:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 45
+    env:
+      REFERENCE_URL: https://soft-cocada-de54ce.netlify.app/
+      BASE_ZIP_SHA256: 0a3e3ad29c940d95f3450fee1a07cb1b5943d2f5ddb6a7a6ad33aa8bff9aaba9
+    steps:
+      - name: Obtener scripts y ZIP base en un directorio independiente
+        uses: actions/checkout@v4
+        with:
+          path: base
+          persist-credentials: false
+
+      - name: Verificar y extraer proyecto base sin credenciales privadas
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "PROJECT_DIR=$GITHUB_WORKSPACE/proyecto/AppSchooling_AndroidStudio_1_2" >> "$GITHUB_ENV"
+          echo "CI_TOOLS_DIR=$RUNNER_TEMP/manzanin-ci-tools" >> "$GITHUB_ENV"
+          echo "PLAYWRIGHT_BROWSERS_PATH=$RUNNER_TEMP/manzanin-playwright-browsers" >> "$GITHUB_ENV"
+          echo "GRADLE_USER_HOME=$RUNNER_TEMP/manzanin-gradle" >> "$GITHUB_ENV"
+          python3 - <<'PY'
+          import hashlib
+          import os
+          from pathlib import Path, PurePosixPath
+          import stat
+          import zipfile
+
+          root = Path(os.environ['GITHUB_WORKSPACE'])
+          archive = root / 'base/AppSchooling_AndroidStudio_1.2_Mis_Avisos.zip'
+          if hashlib.sha256(archive.read_bytes()).hexdigest() != os.environ['BASE_ZIP_SHA256']:
+              raise SystemExit('El SHA256 del ZIP base no coincide con la version revisada.')
+          destination = root / 'proyecto'
+          destination.mkdir()
+          private_extensions = {'.jks', '.keystore', '.p12', '.pfx', '.pem', '.key'}
+          with zipfile.ZipFile(archive) as source:
+              for entry in source.infolist():
+                  path = PurePosixPath(entry.filename)
+                  if path.is_absolute() or '..' in path.parts or '\\' in entry.filename:
+                      raise SystemExit('Ruta no permitida en el ZIP base.')
+                  if not path.parts or path.parts[0] != 'AppSchooling_AndroidStudio_1_2':
+                      raise SystemExit('El ZIP base contiene una raiz de proyecto inesperada.')
+                  if stat.S_ISLNK(entry.external_attr >> 16) or path.suffix.lower() in private_extensions:
+                      raise SystemExit('El ZIP base contiene un enlace o material de firma privado.')
+                  if path.name.lower() in {'local.properties', '.env', 'key.properties', 'keystore.properties', 'signing.properties'} or path.name.lower().startswith('.env.'):
+                      raise SystemExit('El ZIP base contiene configuracion local privada.')
+              source.extractall(destination)
+          print('ZIP base verificado y extraido; no se importaron claves privadas.')
+          PY
+
+      - name: Recuperar el diseno y todos los recursos originales
+        run: python3 base/ci/fetch_reference.py --base "$REFERENCE_URL" --out "$GITHUB_WORKSPACE/out"
+
+      - name: Verificar el manifiesto SHA256 de la referencia
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+
+          site = Path('out/site').resolve()
+          inventory = json.loads(Path('out/code/inventory.json').read_text())
+          pinned = json.loads(Path('base/ci/reference-inventory.json').read_text())
+          files = inventory['files']
+          if {k:v['sha256'] for k,v in files.items()} != {k:v['sha256'] for k,v in pinned['files'].items()}:
+              raise SystemExit('La web ha cambiado desde la referencia revisada; revisar antes de compilar.')
+          if inventory.get('source_url') != 'https://soft-cocada-de54ce.netlify.app/' or inventory.get('offline_inventory_complete') is not True:
+              raise SystemExit('La referencia no tiene el origen o inventario completo esperado.')
+          if not files or not set(inventory['offline_required']).issubset(files):
+              raise SystemExit('Faltan recursos originales requeridos para uso sin conexion.')
+          for relative, expected in files.items():
+              path = (site / relative).resolve()
+              path.relative_to(site)
+              body = path.read_bytes()
+              if len(body) != expected['bytes'] or hashlib.sha256(body).hexdigest() != expected['sha256']:
+                  raise SystemExit('Un recurso no coincide con el manifiesto de referencia.')
+          if {p.relative_to(site).as_posix() for p in site.rglob('*') if p.is_file()} != set(files):
+              raise SystemExit('El directorio de referencia y su manifiesto no coinciden.')
+          print(f'Referencia verificada: {len(files)} archivos y todos los recursos offline.')
+          PY
+
+      - name: Reconstruir la interfaz aprobada 1.3
+        run: python3 base/ci/restore_frontend.py --project "$PROJECT_DIR" --reference "$GITHUB_WORKSPACE/out/site"
+
+      - name: Incorporar Aventurero propio y movimientos mas lentos
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m pip install Pillow==11.3.0
+          python3 - <<'PY'
+          import base64, hashlib, os
+          from pathlib import Path
+          data = base64.b64decode(Path('base/ci/assets/manzanin-aventurero-13.png.b64').read_text().strip(), validate=True)
+          if hashlib.sha256(data).hexdigest() != '5c7d83d021574a24bc26c562fcec435bb74783038e1bcbb62bd968d8077f4c02':
+              raise SystemExit('El atlas nuevo no coincide con la ilustracion revisada.')
+          Path(os.environ['RUNNER_TEMP'], 'manzanin-aventurero-13.png').write_bytes(data)
+          PY
+          python3 base/ci/patch_manzanin.py --project "$PROJECT_DIR" --explorer "$RUNNER_TEMP/manzanin-aventurero-13.png"
+
+      - name: Aplicar el fondo rojo y verde y preparar version 1.4
+        run: python3 base/brand14/apply_brand_14.py --project "$PROJECT_DIR" --theme "$GITHUB_WORKSPACE/base/brand14/brand-red-green-v14.css"
+
+      - name: Comprobar version y Firebase antes de compilar sin firma
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import re
+
+          project = Path(os.environ['PROJECT_DIR'])
+          signing = ('MANZANIN_KEYSTORE', 'MANZANIN_STORE_PASSWORD', 'MANZANIN_KEY_ALIAS', 'MANZANIN_KEY_PASSWORD')
+          if any(os.environ.get(name) for name in signing):
+              raise SystemExit('CI debe compilar sin credenciales de firma.')
+          gradle = (project / 'app/build.gradle').read_text()
+          checks = (r"\bversionCode\s+140\b", r"\bversionName\s+['\"]1\.4\.0['\"]", r"\bcompileSdk\s+35\b")
+          if not all(re.search(pattern, gradle) for pattern in checks):
+              raise SystemExit('El proyecto restaurado no tiene versionCode 140, versionName 1.4.0 y compileSdk 35.')
+          package = re.search(r"\bapplicationId\s+['\"]([^'\"]+)['\"]", gradle)
+          config = json.loads((project / 'app/google-services.json').read_text())
+          clients = config.get('client', []) if isinstance(config, dict) else []
+          packages = [c.get('client_info', {}).get('android_client_info', {}).get('package_name') for c in clients if isinstance(c, dict)]
+          if not package or package.group(1) != 'com.appschooling.manzanin.piloto09' or package.group(1) not in packages:
+              raise SystemExit('Firebase y la identidad Android no corresponden a Manzanin.')
+          print('Version e identidad Firebase verificadas; la firma se realizara localmente.')
+          PY
+
+      - name: Preparar Node para pruebas y subida de partes
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Instalar Playwright y cliente de artifacts fuera del proyecto
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$CI_TOOLS_DIR"
+          npm install --prefix "$CI_TOOLS_DIR" --no-package-lock --no-audit --no-fund playwright@1.56.1 @actions/artifact@2
+          "$CI_TOOLS_DIR/node_modules/.bin/playwright" install --with-deps chromium
+
+      - name: Verificar fondo, legibilidad y funciones conservadas con Chromium
+        id: ui
+        shell: bash
+        run: |
+          set -euo pipefail
+          NODE_PATH="$CI_TOOLS_DIR/node_modules" node base/brand14/check_brand_ui.cjs --project "$PROJECT_DIR" --reference "$GITHUB_WORKSPACE/out/site" --out "$RUNNER_TEMP/manzanin-ui-qa"
+          cp "$RUNNER_TEMP/manzanin-ui-qa/browser-report.json" "$PROJECT_DIR/qa/browser-report.json"
+
+      - name: Guardar evidencia visual incluso si falla la comprobacion
+        if: ${{ always() && steps.ui.outcome != 'skipped' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: manzanin-1.4-ui-qa
+          path: ${{ runner.temp }}/manzanin-ui-qa/
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Crear respaldo de fuentes antes de generar caches y binarios
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib
+          import os
+          from pathlib import Path
+          import zipfile
+
+          project = Path(os.environ['PROJECT_DIR'])
+          output = Path(os.environ['RUNNER_TEMP']) / 'manzanin-deliverables'
+          output.mkdir()
+          ignored = {'.git', '.gradle', '.idea', '.github', 'build', 'node_modules', '__pycache__'}
+          private_extensions = {'.jks', '.keystore', '.p12', '.pfx', '.pem', '.key'}
+          files = []
+          for path in sorted(project.rglob('*')):
+              relative = path.relative_to(project)
+              if any(part in ignored for part in relative.parts):
+                  continue
+              if path.is_symlink():
+                  raise SystemExit('El respaldo no admite enlaces simbolicos.')
+              if not path.is_file():
+                  continue
+              lower = path.name.lower()
+              if path.suffix.lower() in private_extensions or lower in {'local.properties', '.env', 'key.properties', 'keystore.properties', 'signing.properties'} or lower.startswith('.env.'):
+                  raise SystemExit('No se permite material privado de firma o configuracion local en el respaldo.')
+              if '\n' in relative.as_posix() or '\r' in relative.as_posix():
+                  raise SystemExit('El nombre de un archivo no es compatible con el manifiesto SHA256.')
+              files.append((relative.as_posix(), path.read_bytes()))
+          if not files:
+              raise SystemExit('El respaldo de fuentes esta vacio.')
+          manifest = ''.join(hashlib.sha256(body).hexdigest() + '  ' + relative + '\n' for relative, body in files)
+          (output / 'SOURCE_SHA256SUMS').write_text(manifest)
+          archive = output / 'AppSchooling_AndroidStudio_1.4_Rojo_Verde.zip'
+          prefix = 'AppSchooling_AndroidStudio_1_4/'
+          with zipfile.ZipFile(archive, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=6) as target:
+              for relative, body in files:
+                  target.writestr(prefix + relative, body)
+              target.writestr(prefix + 'SOURCE_SHA256SUMS', manifest)
+          with zipfile.ZipFile(archive) as source:
+              if source.testzip() is not None:
+                  raise SystemExit('El ZIP de respaldo no supera su comprobacion de integridad.')
+              for relative, body in files:
+                  if hashlib.sha256(source.read(prefix + relative)).digest() != hashlib.sha256(body).digest():
+                      raise SystemExit('Un archivo del respaldo no coincide con su SHA256.')
+          print(f'Respaldo creado y verificado: {len(files)} archivos; sin caches ni claves privadas.')
+          PY
+
+      - name: Preparar Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Preparar Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools'
+          log-accepted-android-sdk-licenses: false
+
+      - name: Instalar API 35 y Build Tools 35.0.0
+        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+
+      - name: Preparar Gradle 8.9
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+          cache-disabled: true
+
+      - name: Compilar APK release sin firmar
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$PROJECT_DIR"
+          gradle --no-daemon :app:assembleRelease
+
+      - name: Verificar APK y preparar partes de 20 MiB con manifiestos SHA256
+        shell: bash
+        run: |
+          set -euo pipefail
+          apk="$PROJECT_DIR/app/build/outputs/apk/release/app-release-unsigned.apk"
+          signer="$ANDROID_HOME/build-tools/35.0.0/lib/apksigner.jar"
+          test -s "$apk"
+          test -s "$signer"
+          unzip -t "$apk" > /dev/null
+          if java -jar "$signer" verify "$apk" > /dev/null 2>&1; then
+            echo 'CI debe entregar un APK sin firmar.' >&2
+            exit 1
+          fi
+          cp "$apk" "$RUNNER_TEMP/manzanin-deliverables/manzanin-unsigned.apk"
+          cp "$signer" "$RUNNER_TEMP/manzanin-deliverables/apksigner.jar"
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          import shutil
+
+          temp = Path(os.environ['RUNNER_TEMP'])
+          deliverables = temp / 'manzanin-deliverables'
+          publication = temp / 'manzanin-publication'
+          metadata = publication / 'metadata'
+          metadata.mkdir(parents=True)
+          full_sums = []
+          chunk_sums = []
+          uploads = []
+          records = []
+          chunk_bytes = 20 * 1024 * 1024
+          for kind, filename in [('apk', 'manzanin-unsigned.apk'), ('source', 'AppSchooling_AndroidStudio_1.4_Rojo_Verde.zip')]:
+              path = deliverables / filename
+              full_hash = hashlib.sha256(path.read_bytes()).hexdigest()
+              full_sums.append(f'{full_hash}  {filename}\n')
+              chunk_dir = publication / kind
+              chunk_dir.mkdir()
+              parts = []
+              reconstructed = hashlib.sha256()
+              with path.open('rb') as source:
+                  number = 0
+                  while block := source.read(chunk_bytes):
+                      part = chunk_dir / f'{filename}.part-{number:03d}'
+                      part.write_bytes(block)
+                      digest = hashlib.sha256(block).hexdigest()
+                      if hashlib.sha256(part.read_bytes()).hexdigest() != digest:
+                          raise SystemExit('No coincide el SHA256 de una parte escrita.')
+                      reconstructed.update(part.read_bytes())
+                      chunk_sums.append(f'{digest}  {kind}/{part.name}\n')
+                      artifact_name = f'manzanin-1.4-{kind}-part-{number:03d}'
+                      uploads.append({'name': artifact_name, 'path': str(part), 'root': str(chunk_dir)})
+                      parts.append({'file': part.name, 'artifact': artifact_name, 'bytes': len(block), 'sha256': digest})
+                      number += 1
+              if not parts or reconstructed.hexdigest() != full_hash:
+                  raise SystemExit('Las partes no reconstruyen el archivo original.')
+              records.append({'kind': kind, 'file': filename, 'bytes': path.stat().st_size, 'sha256': full_hash, 'parts': parts})
+          signer = deliverables / 'apksigner.jar'
+          signer_hash = hashlib.sha256(signer.read_bytes()).hexdigest()
+          full_sums.append(f'{signer_hash}  apksigner.jar\n')
+          shutil.copy2(signer, metadata / signer.name)
+          shutil.copy2(deliverables / 'SOURCE_SHA256SUMS', metadata / 'SOURCE_SHA256SUMS')
+          shutil.copy2(Path(os.environ['GITHUB_WORKSPACE']) / 'out/code/inventory.json', metadata / 'reference-inventory.json')
+          theme = Path(os.environ['GITHUB_WORKSPACE']) / 'base/brand14/brand-red-green-v14.css'
+          theme_hash = hashlib.sha256(theme.read_bytes()).hexdigest()
+          theme_report = Path(os.environ['PROJECT_DIR']) / 'brand14-report.json'
+          if theme_report.is_file():
+              shutil.copy2(theme_report, metadata / 'brand14-report.json')
+          (metadata / 'SHA256SUMS').write_text(''.join(full_sums))
+          (metadata / 'CHUNK_SHA256SUMS').write_text(''.join(chunk_sums))
+          manifest = {'version': '1.4.0', 'version_code': 140, 'commit': os.environ['GITHUB_SHA'], 'run_id': os.environ['GITHUB_RUN_ID'], 'source_base_sha256': os.environ['BASE_ZIP_SHA256'], 'reference_url': os.environ['REFERENCE_URL'], 'approved_base_version': '1.3.0', 'theme_file': 'brand-red-green-v14.css', 'theme_sha256': theme_hash, 'chunk_bytes': chunk_bytes, 'files': records, 'signing': 'unsigned; private signing key remains local', 'apksigner_sha256': signer_hash}
+          (metadata / 'build-manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
+          (metadata / 'RECONSTRUIR.txt').write_text(
+              'Descargar y extraer cada artifact de partes en apk/ o source/, segun build-manifest.json.\n'
+              'Guardar los archivos del artifact de metadatos en el directorio padre.\n'
+              'Verificar todas las partes: sha256sum --check CHUNK_SHA256SUMS\n'
+              'Reconstruir APK: cat apk/manzanin-unsigned.apk.part-* > manzanin-unsigned.apk\n'
+              'Reconstruir fuentes: cat source/AppSchooling_AndroidStudio_1.4_Rojo_Verde.zip.part-* > AppSchooling_AndroidStudio_1.4_Rojo_Verde.zip\n'
+              'Verificar archivos completos y herramienta: sha256sum --check SHA256SUMS\n'
+              'El APK requiere la clave de firma local antes de instalarse. No subir esa clave a GitHub.\n'
+              'Tras extraer las fuentes, entrar en AppSchooling_AndroidStudio_1_4 y ejecutar sha256sum --check SOURCE_SHA256SUMS.\n'
+          )
+          if sum(path.stat().st_size for path in metadata.rglob('*') if path.is_file()) > 30 * 1024 * 1024:
+              raise SystemExit('Los metadatos exceden el tamano admitido para su descarga.')
+          uploads.append({'name': 'manzanin-1.4-build-metadata', 'path': str(metadata), 'root': str(metadata)})
+          (publication / 'uploads.json').write_text(json.dumps(uploads))
+          print(f'Verificados {len(records)} archivos completos y {len(chunk_sums)} partes de hasta 20 MiB.')
+          PY
+
+      - name: Subir cada parte como artifact independiente y guardar metadatos
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('node:fs');
+            const path = require('node:path');
+            const { DefaultArtifactClient } = require(path.join(process.env.CI_TOOLS_DIR, 'node_modules/@actions/artifact'));
+            const client = new DefaultArtifactClient();
+            const publication = path.join(process.env.RUNNER_TEMP, 'manzanin-publication');
+            const uploads = JSON.parse(fs.readFileSync(path.join(publication, 'uploads.json'), 'utf8'));
+            function collect(directory) {
+              return fs.readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
+                const filename = path.join(directory, entry.name);
+                return entry.isDirectory() ? collect(filename) : [filename];
+              });
+            }
+            for (const upload of uploads) {
+              const files = fs.statSync(upload.path).isDirectory() ? collect(upload.path) : [upload.path];
+              const bytes = files.reduce((total, filename) => total + fs.statSync(filename).size, 0);
+              if (!files.length || bytes > 30 * 1024 * 1024) {
+                throw new Error(`Artifact vacio o demasiado grande: ${upload.name}`);
+              }
+              const result = await client.uploadArtifact(upload.name, files, upload.root, {
+                retentionDays: 7,
+                compressionLevel: 0,
+              });
+              if (!result.id) throw new Error(`No se confirmo la subida de ${upload.name}`);
+              core.info(`${upload.name}: artifact ${result.id}, ${bytes} bytes.`);
+            }
