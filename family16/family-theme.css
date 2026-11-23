@@ -1,0 +1,74 @@
+/* APPSCHOOLING_FAMILY_V16 — menús de la familia, azul claro y espacios amplios. */
+html[data-family-mode="familias"]{--primary:#0863c2;--primary-soft:#e5f2ff;--ink:#18466f;--muted:#526b82;--stroke:#c8def5}
+html[data-family-mode="familias"] body::after,.layout.family16-app::before{display:none!important}
+.layout.family16-app{max-width:680px;min-width:0;width:100%;box-sizing:border-box}
+.family16-app .main{padding:0 0 calc(124px + env(safe-area-inset-bottom,0px));min-width:0}
+.family16-app .page-content{position:relative;margin:-13px 12px 0;padding:24px 19px 27px;border:1px solid #fff;border-radius:30px;background:#fcfcff;box-shadow:none;min-width:0;z-index:2}
+.family16-app.family16-home .main{padding:0 0 calc(124px + env(safe-area-inset-bottom,0px))}
+.family16-app.family16-home .page-content{margin:0;padding:29px 20px 22px;border:0;border-radius:0;background:transparent;box-shadow:none}
+.family16-header{min-height:190px;padding:23px 15px;border-radius:0 0 29px 29px}
+.family16-school-logo{display:block;width:clamp(168px,56vw,230px);max-width:calc(100% - 110px);height:auto!important;aspect-ratio:1600 / 989;object-fit:contain;filter:brightness(0) invert(1);flex-shrink:0}
+.family16-header-small{min-height:151px;padding:17px 15px 25px;border-radius:0}
+.family16-header-small .family16-school-logo{width:156px;max-width:calc(100% - 116px)}
+.family16-back{position:absolute;top:17px;left:16px;display:grid;place-items:center;width:44px;height:44px;padding:8px;border:0;border-radius:50%;background:#ffffff14;color:#fff;box-shadow:none;cursor:pointer}
+.family16-back svg{width:27px;height:27px;display:block}
+.family16-back:hover{background:#ffffff2b}
+.family16-back:focus-visible{outline:3px solid white;outline-offset:2px}
+.family16-header .menu15-bell{top:16px;right:16px;width:44px;height:44px}
+.family16-header .menu15-bell .menu15-bell-icon{width:42px;height:42px}
+.family16-home .menu15-grid{gap:24px;max-width:560px;box-sizing:border-box}
+.family16-home .menu15-tile{width:100%;max-width:100%;min-width:0;min-height:158px;box-sizing:border-box;overflow:hidden;aspect-ratio:1.02;padding:17px 8px;gap:12px;border-radius:28px}
+.family16-home .menu15-tile>.menu15-icon{width:70px;height:70px;max-width:60%;overflow:visible;flex-shrink:0}
+.family16-home .menu15-tile-label{font-size:clamp(17px,5.05vw,25px);line-height:1.12;letter-spacing:-.4px;max-width:100%;overflow-wrap:normal}
+.family16-app .mobile-nav.menu15-nav{width:calc(100% - 28px);max-width:646px;box-sizing:border-box;gap:12px;padding:9px 12px calc(9px + env(safe-area-inset-bottom,0px))}
+.family16-app .menu15-nav-button{min-width:44px;max-width:105px;min-height:54px;padding:5px 7px;box-sizing:border-box}
+.family16-app .menu15-nav-button>.menu15-icon{width:36px;height:36px;overflow:visible;max-width:100%}
+.family16-app .page-title,.family16-app .section-heading,.family16-app .section-title h2{color:#0863c2}
+.family16-app .page-sub{color:#46627a;font-size:16px;line-height:1.5;margin-bottom:19px}
+.family16-app .button,.family16-app .button.small{background:#0863c2!important;color:#fff!important;box-shadow:none!important;min-height:44px;border-radius:15px;font-family:var(--reading-font);line-height:1.25;transform:none}
+.family16-app .button.secondary,.family16-app .button.ghost{background:#e6f2ff!important;color:#095fae!important;border:1px solid #c5def7!important}
+.family16-app .button:hover{background:#0759a9!important}
+.family16-app .button.secondary:hover,.family16-app .button.ghost:hover{background:#d6eaff!important}
+.family16-app .link-btn{color:#0b63b5;font-size:16px}
+.family16-app .card{border:1px solid #c8def5;border-radius:23px;background:#f5faff;color:#18466f;box-shadow:none;padding:19px}
+.family16-app .card:not(.notice-open):not(.notice-detail){background:#f4f9ff!important}
+.family16-app .card p,.family16-app .info{color:#49647a;font-size:16px;line-height:1.5}
+.family16-app .input,.family16-app .form-label{font-family:var(--reading-font)}
+.family16-app .input{background:#fff;border:1px solid #bad7f4;border-radius:14px;color:#244c71;font-size:17px}
+.family16-app .check-circle{border-color:#98c4ec;flex-shrink:0}
+.family16-app .check-circle.done{background:#0863c2;color:white;border-color:#0863c2}
+.family16-app .day.active{background:#0863c2;color:#fff}
+.family16-app .day{border-radius:13px;color:#365d82;min-width:0;padding:9px 1px}
+.family16-app .day,.family16-app .day b{background:#edf6ff;color:#145d9b!important;border-color:#c5def7}
+.family16-app .day.active,.family16-app .day.active b{background:#0863c2!important;color:white!important;border-color:#0863c2}
+.family16-app .badge{color:#0e5da4;background:#dfeeff}
+.family16-app .mini-week{gap:5px}
+.family16-app .family16-planner-card{margin-top:18px}
+.family16-planner-card .task-row{gap:10px}
+.family16-planner-card .row-main{min-width:0}
+.family16-planner-card .row-main b{overflow-wrap:anywhere}
+.family16-planner-empty{padding:25px 10px;text-align:center;font-size:17px;color:#49647a}
+.family16-family-settings{display:grid;gap:17px}
+.family16-family-settings .card{margin:0}
+.family16-family-settings h2{font-size:21px;color:#0863c2;line-height:1.25;margin:0 0 10px}
+.family16-family-settings p{margin:7px 0 15px}
+.family16-profile-options{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}
+html[data-family-mode="familias"] .modal{background:#fcfcff;color:#18466f;border-radius:25px}
+html[data-family-mode="familias"] .modal .button{background:#0863c2;color:#fff;border-radius:15px;box-shadow:none}
+html[data-family-mode="familias"] .modal .page-sub{font-size:16px}
+html[data-family-mode="familias"] .toast{bottom:calc(var(--bottom-navigation-height,80px) + 30px + env(safe-area-inset-bottom,0px));right:18px;max-width:min(320px,calc(100vw - 36px));box-sizing:border-box;z-index:100020;pointer-events:none;background:#135fa6;color:white;border:1px solid #cee6ff;box-shadow:0 6px 19px #124e7928;font-size:16px;line-height:1.35}
+@media(min-width:540px){.family16-header{min-height:212px;padding:26px 20px}.family16-header-small{min-height:164px;padding-top:17px;padding-bottom:25px}.family16-header-small .family16-school-logo{width:173px}.family16-app .page-content{margin-left:22px;margin-right:22px;padding:27px 25px 30px}.family16-app.family16-home .page-content{padding:33px 28px 28px;margin:0}.family16-home .menu15-grid{gap:28px}.family16-home .menu15-tile{min-height:190px;padding:25px 12px;gap:17px;border-radius:34px}.family16-home .menu15-tile>.menu15-icon{width:90px;height:90px}.family16-home .menu15-tile-label{font-size:26px}}
+@media(max-width:359px){.family16-header{min-height:175px;padding:22px 10px}.family16-header-small{min-height:143px;padding:17px 10px 25px}.family16-app .page-content{margin-left:9px;margin-right:9px;padding:21px 14px 24px}.family16-app.family16-home .page-content{padding:25px 14px 18px;margin:0}.family16-home .menu15-grid{gap:22px}.family16-home .menu15-tile{min-height:139px;padding:14px 5px;gap:10px;border-radius:24px}.family16-home .menu15-tile>.menu15-icon{width:60px;height:60px}.family16-home .menu15-tile-label{font-size:17px;line-height:1.1}.family16-header .menu15-bell{right:10px}.family16-back{left:10px}.family16-app .mobile-nav.menu15-nav{gap:10px;padding-left:10px;padding-right:10px}.family16-app .menu15-nav-button>.menu15-icon{width:34px;height:34px}.family16-planner-card .section-title{align-items:flex-start;gap:10px;flex-wrap:wrap}.family16-planner-card .section-title h2{font-size:19px}.family16-app .mini-week{gap:3px}}
+@media(prefers-reduced-motion:reduce){.family16-header{animation:none!important}}
+
+/* El degradado difuminado continúa hasta abajo; solo se desplaza el color. */
+html[data-family-mode="familias"] body{background:transparent!important}
+html[data-family-mode="familias"] #app{isolation:isolate}
+html[data-family-mode="familias"] body::before{content:"";display:block!important;position:fixed;inset:0;width:auto;height:auto;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 0% 15%,#fb3b47 0%,#ef443d 26%,transparent 64%),radial-gradient(ellipse at 100% 72%,#20a33b 0%,#228c3c 34%,transparent 72%),linear-gradient(122deg,#f13b46 0%,#bb6e38 42%,#449c36 68%,#168c3a 100%);background-size:140% 140%;background-position:30% 38%;transform:none;animation:family16-colour-flow 48s ease-in-out infinite alternate!important}
+html[data-family-mode="familias"] body::after{content:"";display:block!important;position:fixed;inset:0;width:100%;height:auto;z-index:0;pointer-events:none;border-radius:0;clip-path:none;background:radial-gradient(ellipse at 20% 80%,rgba(248,62,70,.64) 0%,rgba(248,62,70,.25) 38%,rgba(248,62,70,0) 76%);background-size:150% 150%;opacity:.58;transform:none;animation:family16-red-flow 56s ease-in-out infinite alternate!important}
+html[data-family-mode="familias"] #app::before{content:"";position:fixed;inset:0;width:100%;height:auto;z-index:-1;pointer-events:none;clip-path:none;background:radial-gradient(ellipse at 86% 86%,rgba(61,178,60,.68) 0%,rgba(35,151,59,.28) 42%,rgba(35,151,59,0) 79%);background-size:150% 150%;opacity:.76;transform:none;animation:family16-green-flow 62s ease-in-out infinite alternate}
+.layout.family16-app.family16-home,.family16-home .main{background:transparent!important}
+@keyframes family16-colour-flow{from{background-position:30% 38%}to{background-position:67% 65%}}
+@keyframes family16-red-flow{from{background-position:24% 37%;opacity:.48}to{background-position:64% 68%;opacity:.64}}
+@keyframes family16-green-flow{from{background-position:22% 43%;opacity:.68}to{background-position:65% 72%;opacity:.82}}
+@media(prefers-reduced-motion:reduce){html[data-family-mode="familias"] body::before,html[data-family-mode="familias"] body::after,html[data-family-mode="familias"] #app::before{animation:none!important}}
