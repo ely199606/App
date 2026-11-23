@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:width="68dp" android:height="68dp" android:gravity="center">
+        <layer-list>
+            <item><shape android:shape="oval"><solid android:color="#FFFFFF" /></shape></item>
+            <!-- Original artwork remains intact; these layers show its symbol. -->
+            <item android:width="62dp" android:height="38.32375dp" android:gravity="center" android:top="10dp">
+                <bitmap android:src="@drawable/colegio_logo" android:gravity="fill" />
+            </item>
+            <!-- Hide the wordmark, preserving the apple and open-book pixels. -->
+            <item android:left="2dp" android:right="2dp" android:top="46.7dp" android:bottom="2dp">
+                <shape><solid android:color="#FFFFFF" /></shape>
+            </item>
+            <item><shape android:shape="oval"><solid android:color="#00000000" /><stroke android:width="1.5dp" android:color="#187BC4" /></shape></item>
+        </layer-list>
+    </item>
+</layer-list>
