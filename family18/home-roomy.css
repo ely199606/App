@@ -1,0 +1,15 @@
+/* Inicio más amplio: prioriza lectura y una ayuda visible bajo el menú. */
+.family16-home .family16-header{min-height:166px;padding:14px 15px}
+.family16-home .family16-school-logo{width:200px;max-width:calc(100% - 110px)}
+.family16-app.family16-home .page-content{padding:18px 12px 20px!important}
+.family16-home .menu15-grid{gap:22px}
+.family16-home .menu15-tile{height:174px;min-height:174px;aspect-ratio:auto;gap:13px;padding:17px 8px;border-radius:29px}
+.family16-home .menu15-tile>.menu15-icon{width:80px;height:80px;max-width:62%}
+.family16-home .menu15-tile-label{font-size:22px;line-height:1.12;letter-spacing:-.4px}
+.family18-home-companion{display:flex;align-items:center;justify-content:center;margin:10px auto 0;max-width:210px;min-height:137px}
+.family18-home-companion .family17-school-help{flex:none;width:auto;min-width:100px;gap:7px}
+.family18-home-companion .family17-help-mascot{max-width:none;min-height:104px}
+.family18-home-companion .family17-speech{font-size:15px;padding:7px 11px}
+@media(max-height:790px) and (min-width:360px) and (max-width:539px){.family16-home .family16-header{min-height:146px;padding:10px 15px}.family16-home .family16-school-logo{width:190px}.family16-home .menu15-tile{height:164px;min-height:164px;gap:11px;padding:14px 8px}.family16-home .menu15-tile>.menu15-icon{width:76px;height:76px}.family16-home .menu15-tile-label{font-size:21px}.family18-home-companion{min-height:129px;margin-top:8px}.family18-home-companion .manzanin-animated{width:72px!important;height:96px!important}.family18-home-companion .family17-help-mascot{min-height:96px}}
+@media(max-width:359px){.family16-home .family16-header{min-height:132px;padding:10px}.family16-home .family16-school-logo{width:170px}.family16-app.family16-home .page-content{padding:16px 10px 18px!important}.family16-home .menu15-grid{gap:20px}.family16-home .menu15-tile{height:142px;min-height:142px;padding:13px 5px;gap:10px;border-radius:25px}.family16-home .menu15-tile>.menu15-icon{width:66px;height:66px;max-width:65%}.family16-home .menu15-tile-label{font-size:18px}.family18-home-companion{margin-top:8px;min-height:125px}.family18-home-companion .manzanin-animated{width:67.5px!important;height:90px!important}.family18-home-companion .family17-help-mascot{min-height:90px}.family18-home-companion .family17-speech{font-size:14px}}
+@media(min-width:540px){.family16-app.family16-home .page-content{padding:22px 20px 25px!important}.family16-home .menu15-grid{gap:28px}.family16-home .menu15-tile{height:216px;min-height:216px;padding:24px 12px;gap:18px;border-radius:35px}.family16-home .menu15-tile>.menu15-icon{width:96px;height:96px}.family16-home .menu15-tile-label{font-size:27px}.family18-home-companion{margin-top:17px;min-height:148px}}
