@@ -1,0 +1,40 @@
+{
+  "checked_date": "2026-11-23",
+  "locale": "es-CL",
+  "sources": [
+    {
+      "url": "https://www.ayudamineduc.cl/ficha/examenes-libres-menores-de-18-anos-11",
+      "status": "read successfully",
+      "facts": [
+        "Validation certifies a course or level after passing the relevant examinations.",
+        "The process for under-18s is free; the parent or legal guardian must submit the application.",
+        "Applications can be submitted online or at the appropriate Ayuda Mineduc office; NEE applications are in person.",
+        "The family must review requirements and current dates; authorizations depend on places being available.",
+        "Contact the assigned examination establishment at least ten business days before the examination period.",
+        "Official registration-form URL below is linked from this page; it timed out during direct retrieval, so no live-open availability is asserted."
+      ],
+      "linked_registration_url": "https://inscripcionexameneslibres.mineduc.cl/inscripcion-examenes-libres/examenesLibres"
+    },
+    {
+      "url": "https://www.ayudamineduc.cl/",
+      "status": "read successfully",
+      "facts": [
+        "Ayuda Mineduc is the official citizen-attention portal.",
+        "Call center: 600 600 26 26.",
+        "Mobile/foreign number: 22 353 6750 (international form +56 2 2353 6750).",
+        "Phone hours: Monday through Friday, 08:00 to 18:00.",
+        "The Ministry homepage at https://www.mineduc.cl/ is linked from the official portal; direct retrieval timed out."
+      ]
+    },
+    {
+      "url": "https://www.ayudamineduc.cl/oficina-regional",
+      "status": "read successfully",
+      "facts": ["Official regional/provincial office finder."]
+    }
+  ],
+  "intentionally_omitted": [
+    "No enrollment dates or open periods are hard-coded.",
+    "No guarantee of registration, places, approval or automatic enrollment.",
+    "No lengthy reproduction of official FAQs."
+  ]
+}
