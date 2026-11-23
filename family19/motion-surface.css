@@ -1,0 +1,11 @@
+/* A single painted surface under the approved family layout. */
+html[data-family-mode="familias"]{background:linear-gradient(115deg,#f73d48,#a67c37 51%,#168f3b)}
+html[data-family-mode="familias"] body{background:transparent!important}
+html[data-family-mode="familias"] body::before,
+html[data-family-mode="familias"] body::after,
+html[data-family-mode="familias"] #app::before,
+html[data-family-mode="familias"] .layout::before{content:none!important;display:none!important;animation:none!important}
+html[data-family-mode="familias"] #school-background{display:block;position:fixed;inset:0;width:100vw;height:100vh;height:100dvh;z-index:0;pointer-events:none;user-select:none;contain:strict;transform:translateZ(0)}
+html[data-family-mode="familias"] #app{position:relative;z-index:1}
+html[data-family-mode="familias"] .family16-header,
+html[data-family-mode="familias"] .family16-header-small{background:transparent!important;animation:none!important;box-shadow:none!important;border-radius:0!important}
