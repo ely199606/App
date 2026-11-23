@@ -1,0 +1,46 @@
+/* Una sola superficie de color detrás del logo y del panel claro. */
+.family16-header,.family16-header-small{background:transparent!important;animation:none!important;border-radius:0!important;box-shadow:none!important}
+.family16-home .page-content,.family16-app.family16-home .page-content{margin:8px 14px 0!important;padding:20px 16px 23px!important;border:1px solid #ffffffed!important;border-radius:29px!important;background:rgba(249,252,255,.96)!important;box-shadow:0 8px 22px #14532d14!important}
+.family16-home .menu15-grid{gap:24px}
+.family16-home .menu15-tile{min-height:151px}
+html[data-family-mode="familias"] body::before{background:linear-gradient(115deg,#f73d48 0%,#ee443d 22%,#a38039 48%,#2a9f3b 77%,#118c3b 100%);background-size:160% 160%;background-position:28% 45%;animation:family17-base 28s linear infinite alternate!important}
+html[data-family-mode="familias"] body::after{inset:-15vh -15vw!important;width:130vw!important;height:130vh!important;clip-path:none!important;background:radial-gradient(ellipse at 27% 42%,rgba(255,58,70,.86) 0%,rgba(250,63,67,.52) 28%,rgba(250,63,67,0) 66%);background-size:100% 100%;opacity:.74;animation:family17-red 22s linear infinite alternate!important;will-change:transform}
+html[data-family-mode="familias"] #app::before{inset:-15vh -15vw!important;width:130vw!important;height:130vh!important;clip-path:none!important;background:radial-gradient(ellipse at 76% 62%,rgba(53,181,60,.9) 0%,rgba(32,157,57,.5) 30%,rgba(32,157,57,0) 68%);background-size:100% 100%;opacity:.83;animation:family17-green 24s linear infinite alternate!important;will-change:transform}
+@keyframes family17-base{from{background-position:12% 38%}to{background-position:68% 62%}}
+@keyframes family17-red{from{transform:translate3d(-7vw,-6vh,0)}to{transform:translate3d(14vw,9vh,0)}}
+@keyframes family17-green{from{transform:translate3d(8vw,6vh,0)}to{transform:translate3d(-13vw,-10vh,0)}}
+.family17-school-help{appearance:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;flex:0 0 86px;border:0;padding:0;background:transparent;box-shadow:none;color:#0b5e9c;cursor:pointer;font-family:var(--reading-font)}
+.family17-speech{position:relative;display:block;min-height:28px;padding:6px 10px;border:1.5px solid #b7d9f7;border-radius:13px 13px 13px 5px;background:#fff;color:#175b92;font-size:14px;line-height:1.15;font-weight:700;white-space:nowrap;box-shadow:0 2px 5px #2872a50b}
+.family17-speech::before{content:"";position:absolute;bottom:-6px;left:50%;width:9px;height:9px;background:white;border-right:1.5px solid #b7d9f7;border-bottom:1.5px solid #b7d9f7;transform:translateX(-50%) rotate(45deg)}
+.family17-help-mascot{display:grid;place-items:center;pointer-events:none;max-width:86px}
+.family17-help-mascot .manzanin-animated{max-width:100%}
+.family16-wellbeing .family16-heading>.page-title{white-space:nowrap;font-size:clamp(20px,6.25vw,25px)}
+.family17-school-help:focus-visible{outline:3px solid #0863c2;outline-offset:5px;border-radius:16px}
+.family17-contact-overlay{position:fixed;inset:0;display:grid;place-items:center;padding:22px;background:#173b5973;z-index:100040}
+.family17-contact-dialog{position:relative;box-sizing:border-box;width:100%;max-width:365px;max-height:calc(100dvh - 44px);overflow:auto;padding:27px 21px 23px;border:1px solid white;border-radius:26px;background:#fafdff;box-shadow:0 18px 65px #0e294940;color:#234d70;font-family:var(--reading-font)}
+.family17-contact-dialog h2{font-size:25px;color:#0863c2;line-height:1.2;margin:4px 32px 10px 0}
+.family17-contact-dialog p{font-size:16px;line-height:1.45;margin:0 0 18px}
+.family17-contact-close{position:absolute;top:9px;right:9px;width:40px;height:40px;border:0;border-radius:50%;background:#e4f1ff;color:#145e9f;font-size:30px;cursor:pointer}
+.family17-contact-link{display:flex;flex-direction:column;gap:5px;margin-top:12px;padding:16px;border:1px solid #bfddf8;border-radius:17px;background:#e6f2ff;color:#095ea9;text-decoration:none;min-height:46px}
+.family17-contact-link strong{font-size:18px;line-height:1.25}
+.family17-contact-link span{font-size:16px;overflow-wrap:anywhere}
+.family17-contact-link:hover{background:#d9ebff}
+.notice-page .family17-empty{display:flex;align-items:center;flex-direction:column;padding:22px 19px;background:#eaf5ff!important}
+.family17-empty-speech{position:relative;max-width:250px;margin:0 0 10px;padding:10px 15px;border:1.5px solid #bbdaf5;border-radius:16px;background:#fff;color:#155f9e;font-size:18px;font-weight:700;line-height:1.25;text-align:center}
+.family17-empty-speech::after{content:"";position:absolute;bottom:-7px;left:50%;width:10px;height:10px;transform:translateX(-50%) rotate(45deg);border-bottom:1.5px solid #bbdaf5;border-right:1.5px solid #bbdaf5;background:white}
+.family17-empty-mascot{display:grid;place-items:center;margin:0 auto;min-height:130px}
+.notice-page .family17-empty>p{font-size:16px;line-height:1.45;color:#3f6380;margin:8px 0 0;text-align:center;max-width:270px}
+.family17-pomodoro{margin-top:17px;border:1px solid #c7e1f8;border-radius:20px;background:#e7f2ff;overflow:hidden}
+.family17-pomodoro>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:72px;padding:15px;color:#0863c2;font-size:19px;font-weight:700;cursor:pointer}
+.family17-pomodoro>summary::-webkit-details-marker{display:none}
+.family17-pomodoro>summary::after{content:'⌄';font-size:24px}
+.family17-pomodoro[open]>summary{border-bottom:1px solid #c7e1f8}
+.family17-pomodoro-content{padding:16px 12px;background:#f6fbff;font-size:16px;line-height:1.5;color:#3e607b}
+.family17-pomodoro-content .focus-panel{display:block!important;padding:15px 10px!important}
+.family17-pomodoro-content .focus-clock-column{max-width:100%;min-width:0}
+.family17-pomodoro-content .focus-options{margin-top:20px}
+.family17-pomodoro-content .focus-dial-button{max-width:100%;width:min(100%,260px)}
+.family17-pomodoro-content .focus-heading{display:block}
+@media(max-width:359px){.family16-app.family16-home .page-content{margin-left:11px!important;margin-right:11px!important;padding:17px 12px 20px!important}.family16-home .menu15-grid{gap:22px}.family16-home .menu15-tile{min-height:139px}.family17-school-help{flex-basis:76px}.family17-speech{font-size:13px;padding:6px 8px}}
+@media(min-width:540px){.family16-app.family16-home .page-content{margin-left:22px!important;margin-right:22px!important;padding:25px 23px 28px!important}.family16-home .menu15-grid{gap:28px}}
+@media(prefers-reduced-motion:reduce){html[data-family-mode="familias"] body::before,html[data-family-mode="familias"] body::after,html[data-family-mode="familias"] #app::before{animation:none!important;will-change:auto}}
