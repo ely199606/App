@@ -1,0 +1,20 @@
+/* Family home sizes follow the actual safe WebView viewport, including short phones. */
+html[data-family-mode="familias"]{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.family16-app{--family20-home-header:clamp(102px,18dvh,148px);--family20-bottom-space:106px;--family20-home-tile:clamp(132px,calc((100dvh - 320px)/2),174px)}
+.family16-app .main{padding-bottom:calc(var(--family20-bottom-space) + env(safe-area-inset-bottom,0px))}
+.family16-app .mobile-nav.menu15-nav{bottom:10px;min-height:74px;padding-top:7px;padding-bottom:calc(7px + env(safe-area-inset-bottom,0px));border-radius:34px}
+.family16-app .menu15-nav-button{min-height:52px}
+.family16-home .family16-header{height:var(--family20-home-header);min-height:var(--family20-home-header);padding:10px 14px;box-sizing:border-box}
+.family16-home .family16-school-logo{width:clamp(150px,48vw,190px);max-width:calc(100% - 104px);max-height:calc(var(--family20-home-header) - 18px);object-fit:contain}
+.family16-app.family16-home .main{padding-bottom:calc(var(--family20-bottom-space) + env(safe-area-inset-bottom,0px));min-height:100dvh;box-sizing:border-box}
+.family16-app.family16-home .page-content{min-height:calc(100dvh - var(--family20-home-header) - var(--family20-bottom-space) - 8px - env(safe-area-inset-bottom,0px));padding:18px 12px!important;display:flex;align-items:center;box-sizing:border-box}
+.family16-home .menu15-grid{column-gap:24px;row-gap:24px}
+.family16-home .menu15-tile{height:var(--family20-home-tile);min-height:var(--family20-home-tile);padding:13px 7px;gap:11px;border-radius:27px;aspect-ratio:auto}
+.family16-home .menu15-tile>.menu15-icon{width:clamp(62px,11dvh,80px);height:clamp(62px,11dvh,80px);max-width:62%}
+.family16-home .menu15-tile-label{font-size:clamp(18px,5.1vw,21px);line-height:1.12}
+@media(max-width:359px){.family16-app{--family20-home-tile:clamp(126px,calc((100dvh - 300px)/2),158px)}.family16-app.family16-home .page-content{padding:16px 10px!important}.family16-home .menu15-grid{column-gap:20px;row-gap:22px}.family16-home .menu15-tile{gap:10px;padding:11px 5px;border-radius:24px}.family16-home .menu15-tile-label{font-size:18px}.family16-home .menu15-tile>.menu15-icon{width:64px;height:64px}.family16-home .family16-school-logo{max-width:calc(100% - 96px)}}
+@media(min-width:540px){.family16-app{--family20-home-tile:clamp(156px,23dvh,194px)}.family16-app.family16-home .page-content{padding:22px 20px!important}.family16-home .menu15-grid{column-gap:28px;row-gap:28px}.family16-home .menu15-tile{padding:17px 10px;gap:13px;border-radius:31px}.family16-home .menu15-tile>.menu15-icon{width:86px;height:86px}.family16-home .menu15-tile-label{font-size:25px}}
+/* Short landscape and enlarged accessibility layouts stay scrollable; controls never hide under fixed navigation. */
+@media(max-height:540px){.family16-app{--family20-home-header:102px;--family20-home-tile:132px}.family16-home .family16-school-logo{width:150px}.family16-home .menu15-tile>.menu15-icon{width:62px;height:62px}.family16-home .menu15-tile-label{font-size:18px}.family16-home .menu15-grid{row-gap:20px}.family16-app.family16-home .page-content{padding:17px 12px!important}}
+/* Match the image element to its artwork as well as containing the original pixels. */
+.family16-home .family16-school-logo{height:auto;max-height:none;width:min(48vw,190px,calc((var(--family20-home-header) - 20px) * 1.6178));max-width:calc(100% - 100px)}
