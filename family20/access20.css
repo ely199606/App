@@ -1,0 +1,23 @@
+/* School access is closed until the native Firebase session and administrator claim are verified. */
+html:not([data-school-access="authorized"]) #app,
+html:not([data-school-access="authorized"]) #toast{display:none!important}
+#school-access{position:relative;z-index:3;min-height:100vh;min-height:100dvh;box-sizing:border-box;padding:20px 20px 28px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;color:#123b61;font-family:inherit}
+#school-access[hidden]{display:none!important}
+.access20-logo{width:min(58vw,240px);height:auto;aspect-ratio:1600/989;object-fit:contain;filter:brightness(0) invert(1);flex-shrink:0}
+.access20-card{width:min(100%,390px);box-sizing:border-box;padding:25px 24px 24px;border-radius:30px;background:rgba(250,253,255,.97);box-shadow:0 8px 25px #083f5b16;border:1px solid #fff}
+.access20-card h1{font-family:inherit;font-weight:700;color:#0566bf;margin:0 0 10px;font-size:28px;line-height:1.15}
+.access20-intro{font-size:17px;line-height:1.45;margin:0 0 22px}
+.access20-form{display:flex;flex-direction:column;gap:8px;margin:0}
+.access20-form label{font-size:17px;font-weight:700;margin-top:7px}
+.access20-form input{width:100%;box-sizing:border-box;min-height:52px;border:1.5px solid #b8d9f6;border-radius:14px;background:#fff;color:#103b61;padding:13px 14px;font:inherit;font-size:17px;line-height:1.3;outline-offset:3px;min-width:0}
+.access20-password{position:relative;display:flex;align-items:center}
+.access20-password input{padding-right:78px}
+.access20-show{position:absolute;right:5px;top:5px;bottom:5px;border:0;border-radius:10px;background:#e5f2ff;color:#065cab;padding:0 11px;font:inherit;font-size:14px;cursor:pointer}
+.access20-submit{width:100%;border:0;border-radius:16px;background:#0668c6;color:#fff;min-height:52px;font:inherit;font-size:19px;font-weight:700;margin-top:13px;cursor:pointer}
+.access20-submit:disabled{opacity:.65;cursor:progress}
+.access20-status{font-size:16px;line-height:1.4;margin:4px 0 0;min-height:22px;color:#943633}
+.access20-status:empty{min-height:0;margin:0}
+.access20-help{margin:18px 0 0;font-size:16px;line-height:1.45}
+.access20-contact{display:inline-block;font:inherit;font-size:16px;color:#055bab;font-weight:700;margin-top:8px;text-decoration:underline;text-underline-offset:3px}
+.access20-account{margin-top:18px}.access20-account-email{overflow-wrap:anywhere;font-size:17px}.access20-signout{margin-top:8px}
+@media(max-height:650px){#school-access{justify-content:flex-start;gap:12px;padding:14px 16px 24px}.access20-logo{width:160px}.access20-card{padding:20px}.access20-intro{margin-bottom:12px}.access20-card h1{font-size:25px}}
